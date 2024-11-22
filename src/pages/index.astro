@@ -1,16 +1,26 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Welcome to Astro.">
-	<main class="grid items-center xl:grid-cols-12 xl:grid-rows-12 xl:h-screen">
-		<aside class="m-7 xl:col-span-3 xl:h-full h-fit xl:bg-fixed xl:align-middle border rounded-lg border-black dark:border-white">
-			<img src="./src/assets/images/DanielAristizabalGarcia.jpg" alt="">
-		</aside>
-		<div class="xl:col-span-7 border rounded-lg border-black dark:border-white">
-		</div>
-	</main>
+  <main class="grid xl:grid-cols-12 xl:h-screen place-items-center">
+    <aside
+      class="ml-6 mr-12 xl:col-span-3 border rounded-3xl border-slate-800 dark:border-slate-700 xl:sticky xl:top-0"
+    >
+      <div class="flex justify-between pt-16 pb-10 px-8 gap-x-24">
+        <h1 class="text-4xl pt-3">Daniel</h1>
+        <p class="text-sm font-medium">Desarrollador De Soluciones Digitales</p>
+      </div>
+      <img
+        src="./src/assets/images/DanielAristizabalGarciaa.jpg"
+        alt="Daniel presentation image"
+        class="h-[270px] w-[300px] mx-auto rounded-3xl"
+      />
+      <p class="text-center mt-10 text-xl">danidag516@gmail.com</p>
+    </aside>
+    <div class="p-7 xl:col-span-9 h-screen overflow-y-auto">
+    </div>
+  </main>
 </Layout>
 
-<style>
-</style>
+<style></style>
