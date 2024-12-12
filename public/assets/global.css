@@ -8,3 +8,23 @@ html {
     line-height: 1.7;
     font-weight: 400;
 }
+
+#sidebar,#overlay {
+    transition: all 0.3s;
+}
+
+#sidebar.true  {
+    right: 0!important;
+}
+
+#sidebar.false  {
+    right: -100%!important;
+}
+
+#overlay.true  {
+    display: block;
+}
+
+#overlay.false  {
+    display: none;
+}

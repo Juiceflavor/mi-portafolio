@@ -3,15 +3,68 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Welcome to Astro.">
-  <main class="min-h-screen flex flex-col lg:flex-row lg:space-x-4">
+  <main class="relative min-h-screen flex flex-col lg:flex-row lg:space-x-4">
     <div
+      id="overlay"
+      class="fixed inset-0 bg-black bg-opacity-50 z-40 false"
+    ></div>
+
+    <!-- Lateral menu -->
+    <nav
+      id="sidebar"
+      class="fixed top-0 right-0 h-full w-80 bg-white dark:bg-gray-800 z-50 false"
+    >
+      <div class="p-4">
+        <h2 class="text-2xl font-bold text-gray-800 dark:text-white mb-4">Menu</h2>
+        <ul class="space-y-4">
+          <li>
+            <a href="#about" class="text-gray-600 dark:text-gray-300 hover:underline">
+              About
+            </a>
+          </li>
+          <li>
+            <a href="#contact" class="text-gray-600 dark:text-gray-300 hover:underline">
+              Contact
+            </a>
+          </li>
+        </ul>
+        <div class="mt-6">
+          <button
+            id="themeToggle"
+            class="w-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 py-2 px-4 rounded-lg shadow-lg hover:bg-gray-300 dark:hover:bg-gray-600"
+          >
+            Toggle Dark Mode
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!--- Nav button -->
+    <div class="fixed top-4 right-4 z-50">
+      <button
+        id="menuButton"
+        class="text-white px-4 py-2 rounded-full shadow-lg bg-gray-800 dark:bg-gray-900"
+      >
+        <svg style="width:20px;height:20px" viewBox="0 0 20 20">
+          <path
+            fill="currentColor"
+            d="M1,4 H18 V6 H1 V4 M1,9 H18 V11 H1 V7 M3,14 H18 V16 H1 V14"
+          ></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Presentation card -->
+    <aside
       class="lg:w-1/4 max-w-md mx-auto lg:max-w-full lg:sticky lg:top-0 lg:min-h-screen lg:flex lg:items-center"
     >
       <section
         class="w-full bg-white dark:bg-gray-900 shadow-lg rounded-3xl p-6 mb-4 lg:mb-0 lg:h-fit lg:space-y-4"
       >
         <div class="flex flex-col items-center space-y-4">
-          <h1 class="text-4xl font-bold text-gray-800 dark:text-white">Daniel</h1>
+          <h1 class="text-4xl font-bold text-gray-800 dark:text-white">
+            Daniel
+          </h1>
           <p class="text-gray-600 dark:text-gray-300 text-center">
             Software Developer
           </p>
@@ -42,9 +95,10 @@ import Layout from "../layouts/Layout.astro";
           </button>
         </div>
       </section>
-    </div>
+    </aside>
 
-    <section
+    <!-- About section -->
+    <article
       class="w-full lg:w-3/4 p-6 mt-10 lg:mt-0 lg:min-h-screen lg:overflow-y-auto"
     >
       <p class="text-sm border rounded-lg w-fit px-3 py-1 flex items-center">
@@ -60,17 +114,75 @@ import Layout from "../layouts/Layout.astro";
           <path
             fill-rule="evenodd"
             d="M11.293 3.293a1 1 0 0 1 1.414 0l6 6 2 2a1 1 0 0 1-1.414 1.414L19 12.414V19a2 2 0 0 1-2 2h-3a1 1 0 0 1-1-1v-3h-2v3a1 1 0 0 1-1 1H7a2 2 0 0 1-2-2v-6.586l-.293.293a1 1 0 0 1-1.414-1.414l2-2 6-6Z"
-            clip-rule="evenodd"
-          ></path>
+            clip-rule="evenodd"></path>
         </svg>
         Home
       </p>
-      <h2 class="text-2xl font-bold text-center text-gray-800 dark:text-white mb-4">About</h2>
+      <h2
+        class="text-2xl font-bold text-center text-gray-800 dark:text-white mb-4"
+      >
+        About
+      </h2>
       <p class="text-gray-600 dark:text-gray-400 text-center">
         I'm a person who loves to grow and acquire new knowledge. I am
         passionate about turning dreams into reality. Let's imagine and create
         together!
       </p>
-    </section>
+    </article>
+
+    <script>
+      const menuButton = document.getElementById('menuButton');
+      const sidebar = document.getElementById('sidebar');
+      const overlay = document.getElementById('overlay');
+      const themeToggle = document.getElementById('themeToggle');
+  
+      if (menuButton && sidebar && overlay) {
+        menuButton.addEventListener('click', (e) => {
+          e.stopPropagation();
+
+          if(sidebar.getElementsByClassName("true")){
+            sidebar.classList.toggle('false');
+            overlay.classList.toggle('false');
+          } else{
+            sidebar.classList.toggle('true');
+            overlay.classList.toggle('true');
+          }
+        });
+  
+        document.addEventListener('click', (e) => {
+          if(sidebar.getElementsByClassName("true")){
+            sidebar.classList.toggle('false');
+            overlay.classList.toggle('false');
+          } else{
+            sidebar.classList.toggle('true');
+            overlay.classList.toggle('true');
+          }
+        });
+  
+        sidebar.addEventListener('click', (e) => {
+          e.stopPropagation();
+        });
+      }
+
+      if (themeToggle) {
+      themeToggle.addEventListener('click', () => {
+        const htmlElement = document.documentElement;
+        htmlElement.classList.toggle('dark'); 
+
+        if (htmlElement.classList.contains('dark')) {
+          localStorage.setItem('theme', 'dark');
+        } else {
+          localStorage.setItem('theme', 'light');
+        }
+      });
+
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    }
+    </script>
   </main>
 </Layout>
