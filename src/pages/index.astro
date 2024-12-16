@@ -3,61 +3,9 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Welcome to Astro.">
-  <main class="relative min-h-screen flex flex-col lg:flex-row lg:space-x-4">
-    <div
-      id="overlay"
-      class="fixed inset-0 bg-black bg-opacity-50 z-40 false"
-    ></div>
-
-    <!-- Lateral menu -->
-    <nav
-      id="sidebar"
-      class="fixed top-0 right-0 h-full w-80 bg-white dark:bg-gray-800 z-50 false"
-    >
-      <div class="p-4">
-        <h2 class="text-2xl font-bold text-gray-800 dark:text-white mb-4">Menu</h2>
-        <ul class="space-y-4">
-          <li>
-            <a href="#about" class="text-gray-600 dark:text-gray-300 hover:underline">
-              About
-            </a>
-          </li>
-          <li>
-            <a href="#contact" class="text-gray-600 dark:text-gray-300 hover:underline">
-              Contact
-            </a>
-          </li>
-        </ul>
-        <div class="mt-6">
-          <button
-            id="themeToggle"
-            class="w-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 py-2 px-4 rounded-lg shadow-lg hover:bg-gray-300 dark:hover:bg-gray-600"
-          >
-            Toggle Dark Mode
-          </button>
-        </div>
-      </div>
-    </nav>
-
-    <!--- Nav button -->
-    <div class="fixed top-4 right-4 z-50">
-      <button
-        id="menuButton"
-        class="text-white px-4 py-2 rounded-full shadow-lg bg-gray-800 dark:bg-gray-900"
-      >
-        <svg style="width:20px;height:20px" viewBox="0 0 20 20">
-          <path
-            fill="currentColor"
-            d="M1,4 H18 V6 H1 V4 M1,9 H18 V11 H1 V7 M3,14 H18 V16 H1 V14"
-          ></path>
-        </svg>
-      </button>
-    </div>
-
+  <main class="flex flex-col md:flex-row h-screen">
     <!-- Presentation card -->
-    <aside
-      class="lg:w-1/4 max-w-md mx-auto lg:max-w-full lg:sticky lg:top-0 lg:min-h-screen lg:flex lg:items-center"
-    >
+    <aside class="md:w-1/4 lg:w-1/4 m-5 flex items-center justify-center">
       <section
         class="w-full bg-white dark:bg-gray-900 shadow-lg rounded-3xl p-6 mb-4 lg:mb-0 lg:h-fit lg:space-y-4"
       >
@@ -93,96 +41,301 @@ import Layout from "../layouts/Layout.astro";
           >
             Contact Me
           </button>
-        </div>
+        </div> 
       </section>
     </aside>
 
-    <!-- About section -->
     <article
-      class="w-full lg:w-3/4 p-6 mt-10 lg:mt-0 lg:min-h-screen lg:overflow-y-auto"
+      class="m-5 md:w-3/4 lg:w-3/4 lg:overflow-y-auto md:overflow-y-auto md:pl-48 lg:pl-48"
     >
-      <p class="text-sm border rounded-lg w-fit px-3 py-1 flex items-center">
-        <svg
-          class="w-[15px] h-[15px] text-gray-800 dark:text-white"
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-          width="12"
-          height="12"
-          fill="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M11.293 3.293a1 1 0 0 1 1.414 0l6 6 2 2a1 1 0 0 1-1.414 1.414L19 12.414V19a2 2 0 0 1-2 2h-3a1 1 0 0 1-1-1v-3h-2v3a1 1 0 0 1-1 1H7a2 2 0 0 1-2-2v-6.586l-.293.293a1 1 0 0 1-1.414-1.414l2-2 6-6Z"
-            clip-rule="evenodd"></path>
-        </svg>
-        Home
-      </p>
-      <h2
-        class="text-2xl font-bold text-center text-gray-800 dark:text-white mb-4"
-      >
-        About
-      </h2>
-      <p class="text-gray-600 dark:text-gray-400 text-center">
-        I'm a person who loves to grow and acquire new knowledge. I am
-        passionate about turning dreams into reality. Let's imagine and create
-        together!
-      </p>
+      <!-- Introduce section -->
+      <div id="about" class="mt-20 w-full max-w-2xl">
+        <p class="text-sm border rounded-lg w-fit px-3 py-1 flex items-center">
+          <svg
+            class="w-[15px] h-[15px] text-gray-800 dark:text-white"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="m4 12 8-8 8 8M6 10.5V19a1 1 0 0 0 1 1h3v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h3a1 1 0 0 0 1-1v-8.5"
+            ></path>
+          </svg>
+
+          Introduce
+        </p>
+        <h2 class="mt-12 text-2xl font-bold text-gray-800 dark:text-white mb-4">
+          Greetings from Daniel, software Developer
+        </h2>
+        <p class="text-gray-600 dark:text-gray-400">
+          I'm a person who loves to grow and acquire new knowledge. I am
+          passionate about turning dreams into reality. Let's imagine and create
+          together!
+        </p>
+      </div>
+
+      <!-- Resume section -->
+      <div id="resume" class="mt-20 w-full max-w-2xl">
+        <p class="text-sm border rounded-lg w-fit px-3 py-1 flex items-center">
+          <svg
+            class="w-[15px] h-[15px] text-gray-800 dark:text-white"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M8 7H5a2 2 0 0 0-2 2v4m5-6h8M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m0 0h3a2 2 0 0 1 2 2v4m0 0v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-6m18 0s-4 2-9 2-9-2-9-2m9-2h.01"
+            ></path>
+          </svg>
+          Resume
+        </p>
+        <h2 class="mt-12 text-2xl font-bold text-gray-800 dark:text-white mb-4">
+          My Journey
+        </h2>
+      
+        <!-- Timeline container -->
+        <div class="relative border-l border-gray-200 dark:border-gray-700">
+          <!-- Timeline entry -->
+          <div class="mb-10 ml-6">
+            <span
+              class="absolute flex items-center justify-center w-6 h-6 bg-green-200 rounded-full -left-3 ring-8 ring-white dark:ring-gray-900 dark:bg-green-900"
+            >
+              <svg
+                aria-hidden="true"
+                class="w-3 h-3 text-green-600 dark:text-green-400"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M16.707 10.707a1 1 0 010-1.414L13.414 6H7.5a1 1 0 010-2h7a1 1 0 011 1v7a1 1 0 01-2 0V8.414l-3.293 3.293a1 1 0 01-1.414 0l-3.293-3.293V13a1 1 0 01-1 1H3a1 1 0 110-2h2.586L10 12.586 16.707 6z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </span>
+            <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white">
+              Software analyzer and developer
+              <span
+                class="bg-green-100 text-green-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300 ml-3"
+                >2024 - Present</span
+              >
+            </h3>
+            <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
+              Certificate in <strong>"Centro de servicios y gestión empresarial"</strong>
+            </p>
+            <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white">
+              Definitive html and css course
+            </h3>
+            <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
+              Certificate in <strong>Platzi</strong> (Nov-2024)
+            </p>
+            <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white">
+              Poo java SE course
+            </h3>
+            <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
+              Certificate in <strong>Platzi</strong> (Dec-2024)
+            </p>
+            <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white">
+              SQL and MYSQL course
+            </h3>
+            <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
+              Certificate in <strong>Platzi</strong> (Dec-2024)
+            </p>
+          </div>
+
+          <div class="mb-10 ml-6">
+            <span
+              class="absolute flex items-center justify-center w-6 h-6 bg-green-200 rounded-full -left-3 ring-8 ring-white dark:ring-gray-900 dark:bg-green-900"
+            >
+              <svg
+                aria-hidden="true"
+                class="w-3 h-3 text-green-600 dark:text-green-400"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M16.707 10.707a1 1 0 010-1.414L13.414 6H7.5a1 1 0 010-2h7a1 1 0 011 1v7a1 1 0 01-2 0V8.414l-3.293 3.293a1 1 0 01-1.414 0l-3.293-3.293V13a1 1 0 01-1 1H3a1 1 0 110-2h2.586L10 12.586 16.707 6z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </span>
+            <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white">
+              Internship and Auxiliary in Legal Requirements
+              <span
+                class="bg-green-100 text-green-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300 ml-3"
+                >2024</span
+              >
+            </h3>
+            <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
+              For 6 months, I worked in <strong>"Savia Salud Eps"</strong> as an intern in the Technology and Information department, specifically in the Information Management sub-area, supporting a project focused on data analysis to improve data quality. After this period, I continued for an additional 3 months performing the same functions as during my internship, contributing to the analysis and enhancement of data quality in the cross-sectional database of the company's mission-critical application.
+            </p>
+          </div>
+
+          <div class="mb-10 ml-6">
+            <span
+              class="absolute flex items-center justify-center w-6 h-6 bg-green-200 rounded-full -left-3 ring-8 ring-white dark:ring-gray-900 dark:bg-green-900"
+            >
+              <svg
+                aria-hidden="true"
+                class="w-3 h-3 text-green-600 dark:text-green-400"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M16.707 10.707a1 1 0 010-1.414L13.414 6H7.5a1 1 0 010-2h7a1 1 0 011 1v7a1 1 0 01-2 0V8.414l-3.293 3.293a1 1 0 01-1.414 0l-3.293-3.293V13a1 1 0 01-1 1H3a1 1 0 110-2h2.586L10 12.586 16.707 6z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </span>
+            <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white">
+              Bachelor in software development
+              <span
+                class="bg-green-100 text-green-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300 ml-3"
+                >2020 - 2021</span
+              >
+            </h3>
+            <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
+              Earned a bachelor's degree in Software Development, gaining foundational skills in programming, systems design, and problem-solving. Completed projects that focused on software development practices, preparing for a professional career in technology.
+            </p>
+          </div>
+        </div>
+      </div>
     </article>
 
+    <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 false">
+    </div>
+
+    <!-- Lateral menu -->
+    <nav
+      id="sidebar"
+      class="fixed top-0 right-0 h-full w-80 bg-white dark:bg-gray-800 z-50 false"
+    >
+      <div class="p-4">
+        <h2 class="text-2xl font-bold text-gray-800 dark:text-white mb-4">
+          Menu
+        </h2>
+        <ul class="space-y-4">
+          <li>
+            <a
+              href="#about"
+              class="text-gray-600 dark:text-gray-300 hover:underline"
+            >
+              About
+            </a>
+          </li>
+          <li>
+            <a
+              href="#contact"
+              class="text-gray-600 dark:text-gray-300 hover:underline"
+            >
+              Contact
+            </a>
+          </li>
+        </ul>
+        <div class="mt-6">
+          <button
+            id="themeToggle"
+            class="w-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 py-2 px-4 rounded-lg shadow-lg hover:bg-gray-300 dark:hover:bg-gray-600"
+          >
+            Toggle Dark Mode
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!--- Nav button -->
+    <div class="fixed top-4 right-4 z-50">
+      <button
+        id="menuButton"
+        class="text-white px-4 py-2 rounded-full shadow-lg bg-gray-800 dark:bg-gray-900"
+      >
+        <svg style="width:20px;height:20px" viewBox="0 0 20 20">
+          <path
+            fill="currentColor"
+            d="M1,4 H18 V6 H1 V4 M1,9 H18 V11 H1 V7 M3,14 H18 V16 H1 V14"
+          ></path>
+        </svg>
+      </button>
+    </div>
+
     <script>
-      const menuButton = document.getElementById('menuButton');
-      const sidebar = document.getElementById('sidebar');
-      const overlay = document.getElementById('overlay');
-      const themeToggle = document.getElementById('themeToggle');
-  
+      const menuButton = document.getElementById("menuButton");
+      const sidebar = document.getElementById("sidebar");
+      const overlay = document.getElementById("overlay");
+      const themeToggle = document.getElementById("themeToggle");
+
       if (menuButton && sidebar && overlay) {
-        menuButton.addEventListener('click', (e) => {
+        menuButton.addEventListener("click", (e) => {
           e.stopPropagation();
 
-          if(sidebar.getElementsByClassName("true")){
-            sidebar.classList.toggle('false');
-            overlay.classList.toggle('false');
-          } else{
-            sidebar.classList.toggle('true');
-            overlay.classList.toggle('true');
+          const isOpen = sidebar.classList.contains("true");
+          if (isOpen) {
+            sidebar.classList.remove("true");
+            overlay.classList.remove("true");
+          } else {
+            sidebar.classList.add("true");
+            overlay.classList.add("true");
           }
         });
-  
-        document.addEventListener('click', (e) => {
-          if(sidebar.getElementsByClassName("true")){
-            sidebar.classList.toggle('false');
-            overlay.classList.toggle('false');
-          } else{
-            sidebar.classList.toggle('true');
-            overlay.classList.toggle('true');
+
+        document.addEventListener("click", (e) => {
+          const isOpen = sidebar.classList.contains("true");
+
+          if (e.target instanceof Node) {
+            if (
+              isOpen &&
+              !sidebar.contains(e.target) &&
+              e.target !== menuButton
+            ) {
+              sidebar.classList.remove("true");
+              overlay.classList.remove("true");
+            }
           }
         });
-  
-        sidebar.addEventListener('click', (e) => {
+
+        sidebar.addEventListener("click", (e) => {
           e.stopPropagation();
         });
       }
 
       if (themeToggle) {
-      themeToggle.addEventListener('click', () => {
-        const htmlElement = document.documentElement;
-        htmlElement.classList.toggle('dark'); 
+        themeToggle.addEventListener("click", () => {
+          const htmlElement = document.documentElement;
+          htmlElement.classList.toggle("dark");
 
-        if (htmlElement.classList.contains('dark')) {
-          localStorage.setItem('theme', 'dark');
+          if (htmlElement.classList.contains("dark")) {
+            localStorage.setItem("theme", "dark");
+          } else {
+            localStorage.setItem("theme", "light");
+          }
+        });
+
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme === "dark") {
+          document.documentElement.classList.add("dark");
         } else {
-          localStorage.setItem('theme', 'light');
+          document.documentElement.classList.remove("dark");
         }
-      });
-
-      const savedTheme = localStorage.getItem('theme');
-      if (savedTheme === 'dark') {
-        document.documentElement.classList.add('dark');
-      } else {
-        document.documentElement.classList.remove('dark');
       }
-    }
     </script>
   </main>
 </Layout>
