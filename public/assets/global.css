@@ -18,11 +18,11 @@ html {
 }
 
 #sidebar.false  {
-    right: -100%!important;
+    right: -100%;
 }
 
 #overlay.true  {
-    display: block;
+    display: block!important;
 }
 
 #overlay.false  {
