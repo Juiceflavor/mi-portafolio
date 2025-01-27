@@ -52,3 +52,42 @@ All commands are run from the root of the project, from a terminal:
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+
+
+## 🌐 How to deploy?
+
+1. Go to [FireBase](https://firebase.google.com/) and make and account
+
+2. Go to [console](https://console.firebase.google.com/) and press **Create a project**
+![create a project button](public/assets/images/markDown/image-2.png)
+
+3. Choose a project name
+![Name your project section](public/assets/images/markDown/image-3.png)
+
+4. Once your project is created, go to the project path in your cmd and download firebase CLI
+    ```
+    npm install firebase
+    ```
+5. Run firebase login, it will send you to your browser to login into you google account
+    ```
+    npm login
+    ```
+6. Make sure to run a build of you project to create a **public**, **dis** or **out** folder with the project files to deploy
+![Folder structure](public/assets/images/markDown/image-5.png)
+
+7. Run firebase init
+    ```
+    firebase init hosting
+    ```
+
+    - Select **Use an existing project** and choose the project that you just create in firebase console
+    ![Project chosing](public/assets/images/markDown/image-4.png)
+
+    - When it ask for you **public** folder choose your build folder
+
+8. Run firebase deploy
+    ```
+    firebase deploy
+    ```
+
+🎉 Congratulations! Your application is now deployed.
